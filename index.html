@@ -1,13 +1,32 @@
 <html lang="en">
 
 <head>
+  <script src="https://cdn.optimizely.com/js/20890754917.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Optimizely Testing</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #333;
+    }
+
+    h1 {
+      color: #fff;
+    }
+  </style>
 </head>
 
 <body>
   <h1>Optimizely Test</h1>
+  <button>Add Hash</button>
+
+  <script>
+    document.querySelector('button').addEventListener('click', function () {
+      window.location.replace(window.location.href + '#');
+    });
+  </script>
 </body>
 
 </html>
