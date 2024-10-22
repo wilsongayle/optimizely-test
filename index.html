@@ -39,6 +39,12 @@
     <div class="container">
       <button class="reset">Reset URL</button>
     </div>
+    <<div class="container">
+      <hr />
+  </div>
+  <div class="container">
+    <button class="increment-attribute">Increment Attribute</button>
+  </div>
   </div>
 
 
@@ -56,6 +62,17 @@
       const params = new URLSearchParams(window.location.search);
       const croMode = params.get('cro_mode');
       window.location.assign(`https://wilsongayle.github.io/optimizely-test/?cro_mode=${croMode}`);
+    });
+    let increment = 0;
+    document.querySelector('button.increment-attribute').addEventListener('click', function () {
+      increment++;
+      console.log('incrementing attribute', increment);
+      window.optimizely.push({
+        "type": "user",
+        "attributes": {
+          "increment": increment
+        }
+      });
     });
   </script>
 </body>
