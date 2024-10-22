@@ -20,11 +20,19 @@
 
 <body>
   <h1>Optimizely Test</h1>
-  <button>Add Hash</button>
+  <button class="empty-hash">Add Empty Hash</button>
+  <button class="hash-bang">Add Hash Bang</button>
+  <button class="hash">Add Hash</button>
 
   <script>
-    document.querySelector('button').addEventListener('click', function () {
+    document.querySelector('button.empty-hash').addEventListener('click', function () {
       window.location.replace(window.location.href + '#');
+    });
+    document.querySelector('button.hash-bang').addEventListener('click', function () {
+      window.location.replace(window.location.href + '#!');
+    });
+    document.querySelector('button.hash').addEventListener('click', function () {
+      window.location.replace(window.location.href + '#test');
     });
   </script>
 </body>
