@@ -55,7 +55,7 @@
     document.querySelector('button.reset').addEventListener('click', function () {
       const params = new URLSearchParams(window.location.search);
       const croMode = params.get('cro_mode');
-      window.location.assign(window.location.href + '?cro_mode=' + croMode);
+      window.location.assign(`https://wilsongayle.github.io/optimizely-test/?cro_mode=${croMode}`);
     });
   </script>
 </body>
