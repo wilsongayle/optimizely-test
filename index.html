@@ -12,6 +12,16 @@
       background-color: #333;
     }
 
+    #main-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      margin: 20px;
+    }
+
     h1 {
       color: #fff;
     }
@@ -19,20 +29,33 @@
 </head>
 
 <body>
-  <h1>Optimizely Test</h1>
-  <button class="empty-hash">Add Empty Hash</button>
-  <button class="hash-bang">Add Hash Bang</button>
-  <button class="hash">Add Hash</button>
+  <div id="main-content">
+    <h1>Optimizely Test</h1>
+    <div class="container">
+      <button class="empty-hash">Add Empty Hash</button>
+      <button class="hash-bang">Add Hash Bang</button>
+      <button class="hash">Add Hash</button>
+    </div>
+    <div class="container">
+      <button class="reset">Reset URL</button>
+    </div>
+  </div>
+
 
   <script>
     document.querySelector('button.empty-hash').addEventListener('click', function () {
-      window.location.replace(window.location.href + '#');
+      window.location.assign(window.location.href + '#');
     });
     document.querySelector('button.hash-bang').addEventListener('click', function () {
-      window.location.replace(window.location.href + '#!');
+      window.location.assign(window.location.href + '#!');
     });
     document.querySelector('button.hash').addEventListener('click', function () {
-      window.location.replace(window.location.href + '#test');
+      window.location.assign(window.location.href + '#test');
+    });
+    document.querySelector('button.reset').addEventListener('click', function () {
+      const params = new URLSearchParams(window.location.search);
+      const croMode = params.get('cro_mode');
+      window.location.assign(window.location.href + '?cro_mode=' + croMode);
     });
   </script>
 </body>
