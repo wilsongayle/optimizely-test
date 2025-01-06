@@ -1,80 +1,95 @@
 <html lang="en">
+  <head>
+    <!-- <script src="https://cdn.optimizely.com/js/20890754917.js"></script> -->
+    <!-- begin Convert Experiences code-->
+    <script
+      type="text/javascript"
+      src="//cdn-4.convertexperiments.com/js/10034870-10032912.js"
+    ></script>
+    <!-- end Convert Experiences code -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Optimizely Testing</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #333;
+      }
 
-<head>
-  <script src="https://cdn.optimizely.com/js/20890754917.js"></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Optimizely Testing</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background-color: #333;
-    }
+      #main-content {
+        display: flex;
+        flex-direction: column;
+      }
 
-    #main-content {
-      display: flex;
-      flex-direction: column;
-    }
+      .container {
+        width: 100%;
+        margin: 20px;
+      }
 
-    .container {
-      width: 100%;
-      margin: 20px;
-    }
+      h1 {
+        color: #fff;
+      }
+    </style>
+  </head>
 
-    h1 {
-      color: #fff;
-    }
-  </style>
-</head>
-
-<body>
-  <div id="main-content">
-    <h1>Optimizely Test</h1>
-    <div class="container">
-      <button class="empty-hash">Add Empty Hash</button>
-      <button class="hash-bang">Add Hash Bang</button>
-      <button class="hash">Add Hash</button>
+  <body>
+    <div id="main-content">
+      <h1>Optimizely Test</h1>
+      <div class="container">
+        <button class="empty-hash">Add Empty Hash</button>
+        <button class="hash-bang">Add Hash Bang</button>
+        <button class="hash">Add Hash</button>
+      </div>
+      <div class="container">
+        <button class="reset">Reset URL</button>
+      </div>
+      <div class="container">
+        <hr />
+      </div>
+      <div class="container">
+        <button class="increment-attribute">Increment Attribute</button>
+      </div>
     </div>
-    <div class="container">
-      <button class="reset">Reset URL</button>
-    </div>
-    <div class="container">
-      <hr />
-    </div>
-    <div class="container">
-      <button class="increment-attribute">Increment Attribute</button>
-    </div>
-  </div>
 
-
-  <script>
-    document.querySelector('button.empty-hash').addEventListener('click', function () {
-      window.location.assign(window.location.href + '#');
-    });
-    document.querySelector('button.hash-bang').addEventListener('click', function () {
-      window.location.assign(window.location.href + '#!');
-    });
-    document.querySelector('button.hash').addEventListener('click', function () {
-      window.location.assign(window.location.href + '#test');
-    });
-    document.querySelector('button.reset').addEventListener('click', function () {
-      const params = new URLSearchParams(window.location.search);
-      const croMode = params.get('cro_mode');
-      window.location.assign(`https://wilsongayle.github.io/optimizely-test/?cro_mode=${croMode}`);
-    });
-    let increment = 0;
-    document.querySelector('button.increment-attribute').addEventListener('click', function () {
-      increment++;
-      console.log('incrementing attribute', increment);
-      window.optimizely.push({
-        "type": "user",
-        "attributes": {
-          "increment": increment
-        }
-      });
-    });
-  </script>
-</body>
-
+    <script>
+      document
+        .querySelector('button.empty-hash')
+        .addEventListener('click', function () {
+          window.location.assign(window.location.href + '#');
+        });
+      document
+        .querySelector('button.hash-bang')
+        .addEventListener('click', function () {
+          window.location.assign(window.location.href + '#!');
+        });
+      document
+        .querySelector('button.hash')
+        .addEventListener('click', function () {
+          window.location.assign(window.location.href + '#test');
+        });
+      document
+        .querySelector('button.reset')
+        .addEventListener('click', function () {
+          const params = new URLSearchParams(window.location.search);
+          const croMode = params.get('cro_mode');
+          window.location.assign(
+            `https://wilsongayle.github.io/optimizely-test/?cro_mode=${croMode}`
+          );
+        });
+      let increment = 0;
+      document
+        .querySelector('button.increment-attribute')
+        .addEventListener('click', function () {
+          increment++;
+          console.log('incrementing attribute', increment);
+          window.optimizely.push({
+            type: 'user',
+            attributes: {
+              increment: increment,
+            },
+          });
+        });
+    </script>
+  </body>
 </html>
